@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">FirstProject_Demo</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">St. Petersburg, Russia \n Wed, 20th August</string>
+    <string name="titleBack">Main</string>
+    <string name="weather">Weather</string>
+    <string name="cities">Cities</string>
+    <string name="personName">St. Petersburg，Russia</string>
+    <string name="tem">29°</string>
+    <string name="text_demo">Humidity \n 65%</string>
+    <string name="text5">Feels like \n 29°</string>
+    <string name="text6">Wind \n NW 6 mps</string>
+    <string name="titleTime">Today at 22:54 </string>
+    <string name="title"> Samsung Galaxy S5 review </string>
+    <string name="another_title"> By David Pierce </string>
+    <string name="textResourse">“It’s all in the little things.” It’s a common
+axiom in sports, in design, and in life. Inches
+make champions; big things have small
+beginnings; a small leak can sink a giant
+ship. It’s a tired cliché, but it’s true. It’s even
+true in smartphones.
+\n\n
+Apple’s greatest success isn’t the iPhone’s
+camera or its software or its battery life —
+it’s the scrolling and drawing animations,
+the obvious care put into even the smallest
+parts of the user experience. They’re things
+you might never even notice or name, but
+the small things add up to something
+important. Details matter.</string>
+    <string name="editTitle">Edit Reminder</string>
+    <string name="name">NAME</string>
+    <string name="pracehodle">for you name</string>
+    <string name="general">GENERAL</string>
+    <string name="remind">Remind me on a day</string>
+    <string name="end_repeat">End Repeat</string>
+    <string name="repeat">Repeat</string>
+    <string name="alarm">Alarm</string>
+</resources>

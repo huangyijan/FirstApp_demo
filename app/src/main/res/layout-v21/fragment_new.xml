@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.yijian.firstproject_demo.New">
+
+    <include layout="@layout/title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:includeFontPadding="false"
+            android:text="@string/titleTime"
+            android:textColor="#ffffff"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="7dp"
+            android:includeFontPadding="false"
+            android:text="@string/title"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="7dp"
+            android:includeFontPadding="false"
+            android:text="@string/another_title"
+            android:textColor="#ffffff"
+            android:textSize="12sp" />
+    </LinearLayout>
+    <TextView
+        android:layout_marginTop="25dp"
+        android:background="@drawable/border_temp"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    <TextView
+        android:text="@string/textResourse"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
+        android:letterSpacing="0.2"
+        android:lineSpacingExtra="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
