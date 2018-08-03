@@ -38,8 +38,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager=getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         main_Page main_page1=new main_Page();
-        Stocks stocks=new Stocks();
-        fragmentTransaction.replace(R.id.linear,stocks);
+        fragmentTransaction.replace(R.id.linear,main_page1);
         fragmentTransaction.commit();
     }
 }

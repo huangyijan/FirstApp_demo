@@ -86,6 +86,12 @@ public class main_Page extends Fragment {
                                 .commit();
                         break;
                     case 3:
+                        Stocks stocks=new Stocks();
+                        getActivity().getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.linear,stocks)
+                                .addToBackStack(null)
+                                .commit();
                         break;
                 }
             }
