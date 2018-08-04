@@ -659,7 +659,7 @@ In order to prevent ProGuard from *stripping away* needed classes or class membe
 
 **使用LeakCanary**LeakCanary 是可以在应用运行中检测，定位内存泄露的Java库。使用它应是你开发应用过程中的一部分。更多详细的配置和使用情况请参照wiki。你只需要记得它在你的正式版本中你是不需要配置的。
 
-### 致谢
+### 致谢1
 
 感谢Antti Lammi, Joni Karppinen, Peter Tackage, Timo Tuominen, Vera Izrailit, Vihtori Mäntylä, Mark Voit, Andre Medeiros, Paul Houghton 这些人和Futurice 开发者分享他们的Android开发经验。
 
