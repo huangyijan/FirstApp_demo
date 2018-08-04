@@ -36,5 +36,6 @@ important. Details matter.</string>
     <string name="remind">Remind me on a day</string>
     <string name="end_repeat">End Repeat</string>
     <string name="repeat">Repeat</string>
-    <string name="alarm">Alarm</string>
+    <string name="alarm">AlarmDay</string>
+    <string name="alarm1">AlarmTime</string>
 </resources>
