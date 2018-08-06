@@ -31,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
 
         }
         jump();
+
+
+
+
     }
 
     private void jump(){
