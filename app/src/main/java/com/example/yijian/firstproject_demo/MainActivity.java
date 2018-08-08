@@ -1,5 +1,7 @@
 package com.example.yijian.firstproject_demo;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.app.FragmentManager;
@@ -42,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager=getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         main_Page main_page1=new main_Page();
-        fragmentTransaction.replace(R.id.linear,main_page1);
+        Map map =new Map();
+        fragmentTransaction.replace(R.id.linear,map);
         fragmentTransaction.commit();
+//        startActivity(new Intent(MainActivity.this,Base_Activity.class));
     }
 }

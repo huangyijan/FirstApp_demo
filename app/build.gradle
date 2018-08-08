@@ -16,8 +16,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    buildToolsVersion '27.0.3'
 }
-
+configurations.all {
+    resolutionStrategy {
+        force 'com.android.support:support-annotations:26.1.0'
+    }
+}
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.1.0'
@@ -30,4 +35,6 @@ dependencies {
     implementation files('libs/jackson-core-2.2.3.jar')
     implementation files('libs/jackson-annotations-2.2.3.jar')
     implementation files('libs/jackson-databind-2.2.3.jar')
+    implementation files('libs/Amap_2DMap_V5.2.0_20170627.jar')
+    implementation files('libs/AMapSearch/AMap_Search_V6.1.0_20180330.jar')
 }
