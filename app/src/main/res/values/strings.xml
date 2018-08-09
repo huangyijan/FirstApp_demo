@@ -3,9 +3,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">St. Petersburg, Russia \n Wed, 20th August</string>
-    <string name="titleBack">Main</string>
-    <string name="weather">Weather</string>
-    <string name="cities">Cities</string>
+    <string name="titleBack">主页</string>
+    <string name="weather">天气</string>
+    <string name="cities">城市</string>
     <string name="personName">St. Petersburg，Russia</string>
     <string name="tem">29°</string>
     <string name="text_demo">Humidity \n 65%</string>

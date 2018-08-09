@@ -4,13 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends FragmentActivity {
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
 
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction = fragmentManager.beginTransaction();
         main_Page main_page1=new main_Page();
         Map map =new Map();
-        fragmentTransaction.replace(R.id.linear,map);
+        fragmentTransaction.replace(R.id.linear,main_page1);
         fragmentTransaction.commit();
 //        startActivity(new Intent(MainActivity.this,Base_Activity.class));
     }

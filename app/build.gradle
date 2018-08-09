@@ -3,6 +3,10 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
+        ndk {
+            //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86","arm64-v8a","x86_64"
+        }
         applicationId "com.example.yijian.firstproject_demo"
         minSdkVersion 15
         targetSdkVersion 26
@@ -35,6 +39,7 @@ dependencies {
     implementation files('libs/jackson-core-2.2.3.jar')
     implementation files('libs/jackson-annotations-2.2.3.jar')
     implementation files('libs/jackson-databind-2.2.3.jar')
-    implementation files('libs/Amap_2DMap_V5.2.0_20170627.jar')
     implementation files('libs/AMapSearch/AMap_Search_V6.1.0_20180330.jar')
+    implementation files('libs/Android_Map3D_SDK_V6.3.0_20180619.jar')
+    implementation files('libs/AMap_Location_V4.1.0_20180619.jar')
 }

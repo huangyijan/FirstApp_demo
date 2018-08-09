@@ -1,38 +1,55 @@
 package com.example.yijian.firstproject_demo;
 
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 
-        import android.app.Activity;
-        import android.os.Bundle;
-        import android.view.View;
-        import android.view.View.OnClickListener;
-        import android.widget.Button;
-        import android.widget.RadioGroup;
+import com.amap.api.maps.AMap;
+import com.amap.api.maps.MapView;
 
-        import com.amap.api.maps2d.AMap;
-        import com.amap.api.maps2d.MapView;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 
 /**
- * AMapV1地图中介绍如何显示世界图
+ * AMapV2地图中介绍如何显示一个基本地图
  */
-public class Base_Activity extends Activity implements OnClickListener {
-
+public class Base_Activity extends Activity implements OnClickListener{
     private MapView mapView;
     private AMap aMap;
     private Button basicmap;
     private Button rsmap;
+    private Button nightmap;
+    private Button navimap;
 
-    private RadioGroup mRadioGroup;
+    private CheckBox mStyleCheckbox;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_);
+	    /*
+         * 设置离线地图存储目录，在下载离线地图或初始化地图设置;
+         * 使用过程中可自行设置, 若自行设置了离线地图存储的路径，
+         * 则需要在离线地图下载和使用地图页面都进行路径设置
+         * */
+        //Demo中为了其他界面可以使用下载的离线地图，使用默认位置存储，屏蔽了自定义设置
+        //  MapsInitializer.sdcardDir =OffLineMapUtils.getSdCacheDir(this);
+
         mapView = (MapView) findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);// 此方法必须重写
 
         init();
+
     }
 
     /**
@@ -41,25 +58,66 @@ public class Base_Activity extends Activity implements OnClickListener {
     private void init() {
         if (aMap == null) {
             aMap = mapView.getMap();
-
         }
+        setMapCustomStyleFile(this);
         basicmap = (Button)findViewById(R.id.basicmap);
         basicmap.setOnClickListener(this);
         rsmap = (Button)findViewById(R.id.rsmap);
         rsmap.setOnClickListener(this);
+        nightmap = (Button)findViewById(R.id.nightmap);
+        nightmap.setOnClickListener(this);
+        navimap = (Button)findViewById(R.id.navimap);
+        navimap.setOnClickListener(this);
 
-        mRadioGroup = (RadioGroup) findViewById(R.id.check_language);
+        mStyleCheckbox = (CheckBox) findViewById(R.id.check_style);
 
-        mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        mStyleCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == R.id.radio_en) {
-                    aMap.setMapLanguage(AMap.ENGLISH);
-                } else {
-                    aMap.setMapLanguage(AMap.CHINESE);
-                }
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                aMap.setMapCustomEnable(b);
             }
         });
+
+    }
+
+    private void setMapCustomStyleFile(Context context) {
+        String styleName = "style_json.json";
+        FileOutputStream outputStream = null;
+        InputStream inputStream = null;
+        String filePath = null;
+        try {
+            inputStream = context.getAssets().open(styleName);
+            byte[] b = new byte[inputStream.available()];
+            inputStream.read(b);
+
+            filePath = context.getFilesDir().getAbsolutePath();
+            File file = new File(filePath + "/" + styleName);
+            if (file.exists()) {
+                file.delete();
+            }
+            file.createNewFile();
+            outputStream = new FileOutputStream(file);
+            outputStream.write(b);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (inputStream != null)
+                    inputStream.close();
+
+                if (outputStream != null)
+                    outputStream.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        aMap.setCustomMapStylePath(filePath + "/" + styleName);
+
+        aMap.showMapText(false);
+
     }
 
     /**
@@ -107,7 +165,15 @@ public class Base_Activity extends Activity implements OnClickListener {
             case R.id.rsmap:
                 aMap.setMapType(AMap.MAP_TYPE_SATELLITE);// 卫星地图模式
                 break;
+            case R.id.nightmap:
+                aMap.setMapType(AMap.MAP_TYPE_NIGHT);//夜景地图模式
+                break;
+            case R.id.navimap:
+                aMap.setMapType(AMap.MAP_TYPE_NAVI);//导航地图模式
+                break;
         }
+
+        mStyleCheckbox.setChecked(false);
 
     }
 

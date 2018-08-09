@@ -86,10 +86,11 @@ public class main_Page extends Fragment {
                                 .commit();
                         break;
                     case 3:
-                        Stocks stocks=new Stocks();
+//                        Stocks stocks=new Stocks();
+                        com.example.yijian.firstproject_demo.Map map=new com.example.yijian.firstproject_demo.Map();
                         getActivity().getSupportFragmentManager()
                                 .beginTransaction()
-                                .replace(R.id.linear,stocks)
+                                .replace(R.id.linear,map)
                                 .addToBackStack(null)
                                 .commit();
                         break;
