@@ -7,6 +7,7 @@
     tools:context="com.example.yijian.firstproject_demo.main_Page">
 
     <TextView
+        android:id="@+id/MainPageTitle"
         android:layout_marginTop="54dp"
         android:layout_marginLeft="76dp"
         android:layout_marginRight="76dp"
@@ -17,6 +18,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_blank_fragment" />
+    <TextView
+        android:id="@+id/DateTime"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="76dp"
+        android:layout_marginRight="76dp"
+        android:lineSpacingExtra="8dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_blank_fragment1" />
 
     <GridView
         android:layout_marginTop="44dp"

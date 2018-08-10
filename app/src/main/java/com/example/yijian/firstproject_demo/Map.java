@@ -4,7 +4,6 @@ package com.example.yijian.firstproject_demo;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,22 +12,17 @@ import android.widget.Toast;
 
 
 import com.amap.api.maps.AMap;
-import com.amap.api.maps.CameraUpdate;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.SupportMapFragment;
 import com.amap.api.maps.UiSettings;
-import com.amap.api.maps.model.CameraPosition;
-import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.MyLocationStyle;
-
-import static android.content.ContentValues.TAG;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Map extends SupportMapFragment implements AMap.OnMyLocationChangeListener,View.OnClickListener {
+public class Map extends SupportMapFragment implements AMap.OnMyLocationChangeListener, View.OnClickListener {
 
     private AMap aMap;
     private MyLocationStyle myLocationStyle;
@@ -50,7 +44,7 @@ public class Map extends SupportMapFragment implements AMap.OnMyLocationChangeLi
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_map, container, false);
         //初始化地图
-        mapView = (MapView)v.findViewById(R.id.map);
+        mapView = (MapView) v.findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);
         if (aMap == null) {
             aMap = mapView.getMap();
@@ -59,12 +53,13 @@ public class Map extends SupportMapFragment implements AMap.OnMyLocationChangeLi
 
         return v;
     }
-/*
-* @date: 2018/8/8
-* @author: yijian
-* @description: 初始化一些布局参数
-* @version:
-*/
+
+    /*
+    * @date: 2018/8/8
+    * @author: yijian
+    * @description: 初始化一些布局参数
+    * @version:
+    */
 
     private void init(View v) {
         leftText = ((TextView) v.findViewById(R.id.backText));
@@ -77,12 +72,12 @@ public class Map extends SupportMapFragment implements AMap.OnMyLocationChangeLi
         rightText.setOnClickListener(this);
 
 
-       //初始化位置
+        //初始化位置
         myLocationStyle = new MyLocationStyle();
 
         //交通情况
         aMap.setTrafficEnabled(false);
-//        aMap.setMapType(AMap.MAP_TYPE_NORMAL);
+        //aMap.setMapType(AMap.MAP_TYPE_NORMAL);
         //设置定位
         aMap.setMyLocationStyle(myLocationStyle);
         try {
@@ -95,11 +90,11 @@ public class Map extends SupportMapFragment implements AMap.OnMyLocationChangeLi
         aMap.getUiSettings().setMyLocationButtonEnabled(true);
         aMap.setMyLocationEnabled(true);
         aMap.setOnMyLocationChangeListener(this);
-        aMap.showIndoorMap(true );
+        aMap.showIndoorMap(true);
         //设置logo位置
         UiSettings uiSettings = aMap.getUiSettings();
         uiSettings.setLogoPosition(-550);
-    //设置缩放3~19
+        //设置缩放3~19
         aMap.moveCamera(CameraUpdateFactory.zoomTo(18));
     }
 
@@ -115,12 +110,12 @@ public class Map extends SupportMapFragment implements AMap.OnMyLocationChangeLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.right_text:
-                Toast.makeText(getContext(),"定位方法",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "定位方法", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.backText:
-                global gb=new global();
+                global gb = new global();
                 main_Page mainPage = new main_Page();
-                gb.dump(getActivity(),mainPage);
+                gb.dump(getActivity(), mainPage);
                 break;
         }
     }
