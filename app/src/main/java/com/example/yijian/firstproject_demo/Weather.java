@@ -132,8 +132,20 @@ public class Weather extends Fragment {
                         for (int a = 0; a < hello; a++) {
                             test = jsonArray.getJSONObject(a);
                             date = test.get("date");
-                            string = date.toString();
                             weekDay[a]=string;
+                            switch (a) {
+                                case 0:
+                                    weekDay[a]="今天";
+                                    break;
+                                case 1:
+                                    weekDay[a]="明天";
+                                    break;
+                                case 2:
+                                    weekDay[a]="后天";
+                                    break;
+                                default:
+                                    weekDay[a]=date.toString();
+                            }
                             temp[a]=test.get("high").toString()+"/"+test.get("low").toString()+"/"+test.get("type").toString();
 
                         }

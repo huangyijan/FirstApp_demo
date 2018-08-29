@@ -31,13 +31,12 @@ import static android.content.ContentValues.TAG;
 
 public class main_Page extends Fragment {
 
-
     private GridView gridView;
     private List<Map<String, Object>> dataList;
     private SimpleAdapter simAdapt;
     private int[] IconName = {R.drawable.sun, R.drawable.list, R.drawable.bell, R.drawable.stocks};
-    private String[] StrName = {"天气", "24 资讯", "12 消息", "地图"};
-    private Handler uihandler=new Handler();
+    private String[] StrName = {"天气", "时光机", "12 消息", "地图"};
+    private Handler uihandler = new Handler();
     private TextView title;
     private String city;
     private Calendar cal;
@@ -91,7 +90,6 @@ public class main_Page extends Fragment {
                                 .commit();
                         break;
                     case 3:
-//                        Stocks stocks=new Stocks();
                         com.example.yijian.firstproject_demo.Map map = new com.example.yijian.firstproject_demo.Map();
                         getActivity().getSupportFragmentManager()
                                 .beginTransaction()
@@ -102,6 +100,10 @@ public class main_Page extends Fragment {
                 }
             }
         });
+        initDisplay();
+        if (((MainActivity) getActivity()).transmitTheCity()!=null) {
+            title.setText(((MainActivity) getActivity()).transmitTheCity());
+        }
         return v;
     }
 
@@ -113,6 +115,7 @@ public class main_Page extends Fragment {
     * @version:
     */
     public void initDisplay() {
+        //获取今天多少度
 //        global.sentJson(getContext(), global.getWeatherUrl()+city, Request.Method.GET, new Response.Listener<JSONObject>() {
 //            private String wendu;
 //            @Override
@@ -148,31 +151,33 @@ public class main_Page extends Fragment {
         month = cal.get(Calendar.MONTH);
         day = cal.get(Calendar.DAY_OF_MONTH);
         week = cal.get(Calendar.DAY_OF_WEEK);
-        String weekDay=null;
+        String weekDay = null;
         switch (week) {
             case 1:
-                weekDay="周日";
+                weekDay = "周日";
                 break;
             case 2:
-                weekDay="周一";
+                weekDay = "周一";
                 break;
             case 3:
-                weekDay="周二";
+                weekDay = "周二";
                 break;
             case 4:
-                weekDay="周三";
+                weekDay = "周三";
                 break;
             case 5:
-                weekDay="周四";
+                weekDay = "周四";
                 break;
             case 6:
-                weekDay="周五";
+                weekDay = "周五";
                 break;
             case 7:
-                weekDay="周六";
+                weekDay = "周六";
                 break;
         }
-        time.setText(weekDay+","+year+"-"+month+"-"+day);
+        time.setText(weekDay + "," + year + "-" + (month+1) + "-" + day);
+
+
 
     }
 
@@ -197,9 +202,10 @@ public class main_Page extends Fragment {
         }
         return dataList;
     }
-    public void changetitle(String str){
+
+    public void changetitle(String str) {
         title.setText(str);
-        city=str;
+        city = str;
 
     }
 }

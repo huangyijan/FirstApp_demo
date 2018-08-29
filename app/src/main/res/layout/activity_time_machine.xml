@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.example.yijian.firstproject_demo.time_machine">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/btn_select"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="12dp"
+                android:layout_weight="1.0"
+                android:background="@drawable/ic_launcher_background"
+                android:gravity="center"
+                android:text="@string/selectImage"
+                android:textAllCaps="false"
+                android:textStyle="bold" />
+
+
+            <Button
+                android:id="@+id/btn_compare"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="12dp"
+                android:layout_weight="1.0"
+                android:background="@drawable/ic_launcher_background"
+                android:gravity="center"
+                android:text="@string/compareImage"
+                android:textAllCaps="false"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/compare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:text="@string/startCompare" />
+
+
+    <TextView
+        android:id="@+id/compare_end"
+        android:text="@string/compare_end"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

@@ -1,16 +1,21 @@
 package com.example.yijian.firstproject_demo;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
+import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
@@ -33,7 +38,6 @@ public class MainActivity extends FragmentActivity {
     //声明AMapLocationClient对象
     private AMapLocationClient myLocationclient = null;
     private main_Page main_page;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +48,7 @@ public class MainActivity extends FragmentActivity {
 //        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
         //设置状态栏为透明
+        test();
         if (Build.VERSION.SDK_INT >= 21) {
             View decorView = getWindow().getDecorView();
             int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
@@ -53,10 +58,36 @@ public class MainActivity extends FragmentActivity {
             main_page = new main_Page();
 
         }
+        startActivity(new Intent(MainActivity.this,time_machine.class));
         locationCity();
 
     }
 
+    private void test() {
+        // 要申请的权限 数组 可以同时申请多个权限
+        String[] permissions = {Manifest.permission.ACCESS_COARSE_LOCATION};
+
+        if (Build.VERSION.SDK_INT >= 23) {
+            //如果超过6.0才需要动态权限，否则不需要动态权限
+            //如果同时申请多个权限，可以for循环遍历
+            int check = ContextCompat.checkSelfPermission(this,permissions[0]);
+            // 权限是否已经 授权 GRANTED---授权  DINIED---拒绝
+            if (check == PackageManager.PERMISSION_GRANTED) {
+                //写入你需要权限才能使用的方法
+                run();
+            } else {
+                //手动去请求用户打开权限(可以在数组中添加多个权限) 1 为请求码 一般设置为final静态变量
+                requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+            }
+        } else {
+            //写入你需要权限才能使用的方法
+            run();
+        }
+    }
+
+    private void run() {
+        Log.i(TAG, "run: 拿到了定位了");
+    }
 
 
     public  String transmitTheCity(){
